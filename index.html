@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Magic 8 Ball</title>
+
+  <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+  <link rel=" stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+
+  <div class="ball-container" onclick="handleClick()">
+    <img src="./assets/ball.png" alt="Magic 8 Ball">
+    <svg class="triangle-text" viewBox="0 0 180 140">
+      <polygon points="0,0 180,0 90,140" fill="none" stroke="none" />
+      <text id="text" x="50%" y="20" text-anchor="middle"></text>
+    </svg>
+  </div>
+
+
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
