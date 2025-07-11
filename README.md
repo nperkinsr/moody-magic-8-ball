@@ -1,6 +1,11 @@
 # Moody Magic 8 Ball
+**Moody Magic 8 Ball** is a sarcastic twist on the classic fortune-telling toy. Instead of cheerful or neutral answers, this 8 ball is always in a bad mood, delivering snarky, slightly rude, but hilarious responses to your yes-or-no questions.
 
-Very moody magic 8 ball. Ask a question and then click on the ball to see the answer
+Click the 8 ball, think of your question, and get replies like:
+_“You really thought, eh? Cute.”_
+_“Dream on, superstar.”_
+
+This project was created to practise event handling, random selection, and displaying dynamic messages — with a generous dose of attitude.
 
 https://nperkinsr.github.io/moody-magic-8-ball/
 
