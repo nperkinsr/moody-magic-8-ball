@@ -20,7 +20,9 @@ const messages = [
   "Did you even wash your hands first?",
 ];
 
-function wrapTextIntoTriangle(textElement, message) {
+let revealTimeoutId;
+
+function buildTriangleLines(message) {
   const words = message.split(" ");
   let lines = [];
   let currentLine = "";
@@ -37,34 +39,50 @@ function wrapTextIntoTriangle(textElement, message) {
   });
   lines.push(currentLine);
 
-  textElement.innerHTML = ""; // Clear previous text
+  return lines;
+}
+
+function wrapTextIntoTriangle(textElement, message, { animate = false } = {}) {
+  const lines = buildTriangleLines(message);
+
+  textElement.innerHTML = "";
+  textElement.classList.remove("is-clearing");
 
   const totalLines = lines.length;
-  const startY = 20 - (totalLines - 1) * 6; // Adjust starting Y position
+  const startY = 20 - (totalLines - 1) * 6;
 
   lines.forEach((line, index) => {
     let tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     tspan.setAttribute("x", "50%");
     tspan.setAttribute("dy", index === 0 ? `${startY}%` : "1.2em");
     tspan.textContent = line;
+
+    if (animate) {
+      tspan.style.animationDelay = `${index * 220}ms`;
+    } else {
+      tspan.style.opacity = "1";
+      tspan.style.filter = "none";
+      tspan.style.animation = "none";
+    }
+
     textElement.appendChild(tspan);
   });
 }
 
 function handleClick() {
   const textElement = document.getElementById("text");
-  textElement.style.opacity = "0";
+  clearTimeout(revealTimeoutId);
+  textElement.classList.add("is-clearing");
 
-  setTimeout(() => {
+  revealTimeoutId = setTimeout(() => {
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    wrapTextIntoTriangle(textElement, randomMessage);
-    textElement.style.opacity = "1";
-  }, 500);
+    wrapTextIntoTriangle(textElement, randomMessage, { animate: true });
+  }, 350);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   wrapTextIntoTriangle(
     document.getElementById("text"),
-    "Ask your question, and then click   on me"
+    "Ask your question, and then click on me"
   );
 });

@@ -12,17 +12,26 @@
 </head>
 
 <body>
+  <main class="app-shell">
+    <section class="hero-copy">
+      <p class="eyebrow">Mystic Answers On Demand</p>
+      <h1>Magic 8 Ball</h1>
+      <p class="description">
+        Ask your most important question, tap the ball, and watch your fate drift
+        into view from the glowing answer window.
+      </p>
+    </section>
 
-
-  <div class="ball-container" onclick="handleClick()">
-    <img src="./assets/ball.png" alt="Magic 8 Ball">
-    <svg class="triangle-text" viewBox="0 0 180 140">
-      <polygon points="0,0 180,0 90,140" fill="none" stroke="none" />
-      <text id="text" x="50%" y="20" text-anchor="middle"></text>
-    </svg>
-  </div>
-
-
+    <div class="ball-stage">
+      <div class="ball-container" onclick="handleClick()">
+        <img src="./assets/ball.png" alt="Magic 8 Ball">
+        <svg class="triangle-text" viewBox="0 0 180 140">
+          <polygon points="0,0 180,0 90,140" fill="none" stroke="none" />
+          <text id="text" x="50%" y="20" text-anchor="middle"></text>
+        </svg>
+      </div>
+    </div>
+  </main>
 
   <script src="scripts.js"></script>
 </body>
